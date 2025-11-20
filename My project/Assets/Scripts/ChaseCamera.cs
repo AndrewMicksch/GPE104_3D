@@ -27,7 +27,7 @@ public class ChaseCamera : MonoBehaviour
     {
         if (player != null && camPos !=null)
         {
-            transform.LookAt(player.position, Vector3.up);
+            transform.LookAt(player.position, transform.up);
             speed *= Time.deltaTime;
             transform.position = Vector3.MoveTowards(camPos.position, transform.position, speed);
             //if (Vector3.Distance(transform.position, camPos.position) < currentOffset)

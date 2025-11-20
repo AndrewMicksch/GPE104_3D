@@ -25,7 +25,7 @@ public class PrimaryBullet : BulletClass
     }
     void OutofBounds()
     {
-        if (transform.position.x <= GameManager.core.minX || transform.position.y <= GameManager.core.minY || transform.position.z <= GameManager.core.minZ || transform.position.x >= GameManager.core.maxX || transform.position.y >= GameManager.core.maxY || transform.position.z >= GameManager.core.maxZ)
+        if (transform.position.x <= LevelManager.level.minX || transform.position.y <= LevelManager.level.minY || transform.position.z <= LevelManager.level.minZ || transform.position.x >= LevelManager.level.maxX || transform.position.y >= LevelManager.level.maxY || transform.position.z >= LevelManager.level.maxZ)
         {
             Destroy(gameObject);
         }

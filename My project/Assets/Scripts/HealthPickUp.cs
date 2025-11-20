@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class HealthPickUp : MonoBehaviour
 {
-
-    public float healAmount;
+    [Header("Health")]
+    public float minHeal;
+    public float maxHeal;
+    private float healAmount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +19,7 @@ public class HealthPickUp : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        healAmount = Random.Range(minHeal, maxHeal);
         HealthComp otherHealth = other.gameObject.GetComponent<HealthComp>();
         if (otherHealth != null && otherHealth.currentHP != otherHealth.maxHP)
         {
