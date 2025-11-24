@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrimaryBullet
   damageDone: 2
-  shootSpeed: 6
+  shootSpeed: 10
 --- !u!65 &-6659276781686155174
 BoxCollider:
   m_ObjectHideFlags: 0

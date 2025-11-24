@@ -79,6 +79,7 @@ public class Pawn : MonoBehaviour
         if(tempBull != null)
         {
             Pawn bullComponent = tempBull.GetComponent<Pawn>();
+            tempBull.transform.parent = GameManager.core.levelOne.transform;
         }
     }
 }
