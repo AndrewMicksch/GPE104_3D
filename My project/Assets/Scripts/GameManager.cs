@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,7 +13,11 @@ public class GameManager : MonoBehaviour
 
     [Header("game State")]
     private bool paused = false;
-
+    public List<HealthPickUp> heals;
+    public List<DamageOnCollision> uFOsInPlay;
+    public List<DamageOnCollision> AsteroidsInPlay;
+    public int Score = 0;
+    
     public float minX;
     public float minY;
     public float minZ;
@@ -40,7 +46,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameQuit();
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             paused = TogglePause();
@@ -52,6 +57,10 @@ public class GameManager : MonoBehaviour
             {
                 mainMenu.SetActive(false);
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameQuit();
         }
     }
     bool TogglePause()
@@ -87,9 +96,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameQuit()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+       Application.Quit();
+        Debug.Log("Game Closing!");
     }
 }

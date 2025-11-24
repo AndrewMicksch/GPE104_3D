@@ -3,6 +3,10 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     public Pawn player;
+    public Transform playerPos;
+    public Pawn uFO;
+
+    public bool enemy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +19,10 @@ public class Controller : MonoBehaviour
         if (player != null)
         {
             MakeDecisions();
+        }
+        if (enemy != false)
+        {
+            MakeEvilDecisions();
         }
     }
     private void MakeDecisions()
@@ -59,6 +67,14 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             player.FireBullet1();
+        }
+    }
+
+    private void MakeEvilDecisions()
+    {
+        if (playerPos != null && uFO != null)
+        {
+            uFO.MoveTowards(playerPos);
         }
     }
 }

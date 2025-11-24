@@ -9,7 +9,7 @@ public class HealthPickUp : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        GameManager.core.heals.Add(this);
     }
 
     // Update is called once per frame
@@ -24,7 +24,11 @@ public class HealthPickUp : MonoBehaviour
         if (otherHealth != null && otherHealth.currentHP != otherHealth.maxHP)
         {
             otherHealth.Heal(healAmount);
-            
+            Destroy(gameObject);
         }
+    }
+    void OnDestroy()
+    {
+        GameManager.core.heals.Remove(this);
     }
 }

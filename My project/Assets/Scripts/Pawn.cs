@@ -8,6 +8,7 @@ public class Pawn : MonoBehaviour
     public Death death;
     private Transform spawnPosition;
     public GameObject spawnPoint;
+    private Transform playerPos;
     public GameObject bulletType1;
 
     [Header("Movement")]
@@ -25,12 +26,19 @@ public class Pawn : MonoBehaviour
         body = GetComponent<Rigidbody>();
         health = GetComponent<HealthComp>();
         death = GetComponent<Death>();
+        playerPos = GetComponentInParent<Transform>(playerPos);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void MoveTowards (Transform playerPos)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, playerPos.position, (moveSpeed * Time.deltaTime));
+        transform.LookAt(playerPos);
     }
 
     public void MoveForward (float moveSpeed)
