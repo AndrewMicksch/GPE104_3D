@@ -11,6 +11,9 @@ public class Pawn : MonoBehaviour
     private Transform playerPos;
     public GameObject bulletType1;
 
+    [Header("Player")]
+    public bool isPlayer;
+
     [Header("Movement")]
     public float moveSpeed;
     public float baseSpeed;
@@ -27,6 +30,11 @@ public class Pawn : MonoBehaviour
         health = GetComponent<HealthComp>();
         death = GetComponent<Death>();
         playerPos = GetComponentInParent<Transform>(playerPos);
+
+        if (isPlayer)
+        {
+            GameManager.core.activePlayer = this.gameObject;
+        }
     }
 
     // Update is called once per frame

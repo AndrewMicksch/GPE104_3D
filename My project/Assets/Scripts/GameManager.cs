@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
     public List<DamageOnCollision> uFOsInPlay;
     public List<DamageOnCollision> AsteroidsInPlay;
     public int Score = 0;
-    
+
+    [Header("Game Information")]
+    public GameObject activePlayer;
     public float minX;
     public float minY;
     public float minZ;
